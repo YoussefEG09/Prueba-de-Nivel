@@ -16,15 +16,27 @@ public class RobotMain {
         Aquatic robot2 = new Aquatic("AquaRunner", "AquaTech", 2021, new Date(), 500, PropulsionSystem.PROPELLER);
         Aerial robot3 = new Aerial("SkyDancer", "AeroDynamics", 2023, new Date(), 3000.0, 90);
 
+
         consultor.registerRobot(robot1);
         consultor.registerRobot(robot2);
         consultor.registerRobot(robot3);
 
-        System.out.println(consultor.getRobotByManufacturer("AquaTech");
+        System.out.println("=====Showing all robots=====");
+        System.out.println(robot1.getTechnicalDescription());
+        System.out.println(robot2.getTechnicalDescription());
+        System.out.println(robot3.getTechnicalDescription());
 
-        System.out.println(consultor.getLandRobotWithSpeed().stream()
+        System.out.println("===========Filtered By Manufacturer Name =================");
+        System.out.println(consultor.getRobotByManufacturer("AquaTech").stream()
                 .map(Robot::getName)
                 .toList());
+
+
+        System.out.println("========== Land Robot with speed > than 30 km/h=============");
+        System.out.println(consultor.getLandRobotWithSpeed(30).stream()
+                .map(Robot::getName)
+                .toList());
+
 
     }
 }

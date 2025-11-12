@@ -18,16 +18,16 @@ public class RobotConsultor {
             robotList.forEach(robot -> System.out.println(robot.getTechnicalDescription()));
     }
 
-    public List<Land> getLandRobotWithSpeed() {
+    public List<Land> getLandRobotWithSpeed(int speed) {
         return robotList.stream()
                 .filter(robot -> robot instanceof Land)
                 .map(robot -> (Land) robot)
-                .filter(robot -> robot.getMaxSpeed() > 60)
+                .filter(robot -> robot.getMaxSpeed() > speed)
                 .collect(Collectors.toList());
     }
 
-    public Robot getRobotByManufacturer(String manufacturer) {
-        return (Robot) robotList.stream()
+    public List<Robot> getRobotByManufacturer(String manufacturer) {
+        return  robotList.stream()
                 .filter(robot -> robot.getManufacturer().equalsIgnoreCase(manufacturer))
                 .collect(Collectors.toList());
     }
