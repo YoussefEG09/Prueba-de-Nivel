@@ -3,6 +3,7 @@ import Enums.TractionType;
 import Models.Aerial;
 import Models.Aquatic;
 import Models.Land;
+import Models.Robot;
 import Service.RobotConsultor;
 
 import java.util.Date;
@@ -19,7 +20,11 @@ public class RobotMain {
         consultor.registerRobot(robot2);
         consultor.registerRobot(robot3);
 
-        System.out.println(consultor.getRobotByManufacturer("RoboCorp"));
+        System.out.println(consultor.getRobotByManufacturer("AquaTech");
+
+        System.out.println(consultor.getLandRobotWithSpeed().stream()
+                .map(Robot::getName)
+                .toList());
 
     }
 }
