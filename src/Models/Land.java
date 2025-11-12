@@ -1,10 +1,11 @@
 package Models;
 
 import Enums.TractionType;
+import Interfaces.ResistanceEvaluable;
 
 import java.util.Date;
 
-public class Land extends Robot {
+public class Land extends Robot implements ResistanceEvaluable {
     private final int maxSpeed;
     private final TractionType tractionType;
 
@@ -29,7 +30,7 @@ public class Land extends Robot {
                 + ", uses " + getTractionType() + " traction and reaches speeds up to " + getMaxSpeed() + " km/h.";
     }
 
-
+    @Override
     public String getResistanceReport() {
         String able = " is able to participate in the competition";
         if (!getTractionType().equals(TractionType.TRACKS)) {

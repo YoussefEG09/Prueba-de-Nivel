@@ -2,7 +2,7 @@ package Models;
 
 import java.util.Date;
 
-public abstract class Robot  {
+public abstract class Robot {
     private final String name;
     private final String manufacturer;
     private final int manufacturedYear;
